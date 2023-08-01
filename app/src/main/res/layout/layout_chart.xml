@@ -27,7 +27,9 @@
             <include
                 android:id="@+id/madoul_chart_change_1"
                 layout="@layout/madoul_chart_change_1"/>
-
+            <include
+                android:id="@+id/madoul_chart_change2"
+                layout="@layout/madoul_chart_change2"/>
         </LinearLayout>
 
 
