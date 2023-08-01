@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:text="kossherossher ksoskossher ksoskossher ksosk ksosksjsfafsome random newssome random newssome random newssome random news"
+        android:text="kossherkossherkossherkossherkossherkossherkossherkossherkossherkosshekossher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/img_news"
         app:layout_constraintTop_toTopOf="parent" />
