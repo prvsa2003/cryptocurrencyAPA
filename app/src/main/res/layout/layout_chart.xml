@@ -24,6 +24,9 @@
             <include
                 android:id="@+id/UpDownSign"
                 layout="@layout/madoul_up_down_sighn" />
+            <include
+                android:id="@+id/madoul_chart_change_1"
+                layout="@layout/madoul_chart_change_1"/>
 
         </LinearLayout>
 
