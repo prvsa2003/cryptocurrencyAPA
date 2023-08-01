@@ -16,6 +16,18 @@
         <include
             android:id="@+id/PriceCounChart"
             layout="@layout/madoul_chart_coin_price"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <include
+                android:id="@+id/UpDownSign"
+                layout="@layout/madoul_up_down_sighn" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
