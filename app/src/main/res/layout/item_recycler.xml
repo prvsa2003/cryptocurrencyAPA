@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="14dp"
+    android:background="?attr/selectableItemBackground"
+    android:paddingBottom="4dp"
+    android:paddingTop="4dp"
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp"
+    android:clickable="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true">
+
+    <ImageView
+        android:id="@+id/img_coins"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_icon" />
+
+    <TextView
+        android:layout_marginBottom="4dp"
+        android:textColor="@color/primaryTextColor"
+        style="@style/CoinBitText.Body1"
+        android:id="@+id/coin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Bitcoin"
+        app:layout_constraintStart_toEndOf="@+id/img_coins"
+        app:layout_constraintTop_toTopOf="@+id/img_coins" />
+
+    <TextView
+        android:textColor="@color/colorGain"
+        android:layout_marginStart="20dp"
+        style="@style/CoinBitText.Body1Alternate"
+        android:id="@+id/darsad_taghieer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0.08661%"
+        app:layout_constraintEnd_toEndOf="@+id/coin_name"
+        app:layout_constraintStart_toStartOf="@+id/coin_name"
+        app:layout_constraintTop_toBottomOf="@+id/coin_name" />
+
+    <TextView
+        style="@style/CoinBitText.Body1"
+        android:id="@+id/price_coin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="$29234.3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/coin_name" />
+
+    <TextView
+        style="@style/CoinBitText.Body1Alternate"
+        android:id="@+id/market_cap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        android:text="$56846B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/price_coin"
+        app:layout_constraintTop_toBottomOf="@+id/price_coin" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
