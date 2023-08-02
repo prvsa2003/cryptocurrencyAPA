@@ -15,10 +15,10 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <include
             android:id="@+id/layoutchart"
             layout="@layout/layout_chart"/>
+
 
     </androidx.core.widget.NestedScrollView>
 
