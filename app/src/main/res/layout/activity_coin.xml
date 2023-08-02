@@ -9,15 +9,26 @@
 
     <include
         android:id="@+id/toolbarcoinpage"
-        layout="@layout/layout_toolbar"/>
+        layout="@layout/layout_toolbar" />
 
     <androidx.core.widget.NestedScrollView
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include
-            android:id="@+id/layoutchart"
-            layout="@layout/layout_chart"/>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include
+                android:id="@+id/layoutchart"
+                layout="@layout/layout_chart"/>
+            <include
+                android:id="@+id/layoutstatic"
+                layout="@layout/layout_static"/>
+
+        </LinearLayout>
+
 
 
     </androidx.core.widget.NestedScrollView>
