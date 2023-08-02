@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_marginStart="14dp"
-    android:layout_marginEnd="14dp"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="14dp"
+    android:layout_marginEnd="14dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,146 +40,155 @@
         </LinearLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
             <com.robinhood.spark.SparkView
                 android:id="@+id/sparkCoin"
-                app:spark_scrubEnabled="true"
-                app:spark_lineColor="@color/colorPrimary"
-                app:spark_animateChanges="true"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:spark_animateChanges="true"
+                app:spark_lineColor="@color/colorPrimary"
+                app:spark_scrubEnabled="true" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <LinearLayout
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
             <RadioGroup
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:padding="8dp"
-                android:weightSum="7"
+                android:id="@+id/radiogroupchart"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                android:weightSum="7">
+
                 <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:id="@+id/radiobutton12h"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="true"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="12H"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobotton1d"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="1D"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobottn1w"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="1W"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobotten1M"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="1M"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobotton3M"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="3M"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobottn1Y"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:background="@drawable/range_radio_btn_selector_background"
+                    android:button="@null"
                     android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
                     android:text="1Y"
-                    android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-                <RadioButton
-                    android:textSize="14sp"
-                    android:textStyle="bold"
                     android:textColor="@drawable/range_radio_btn_selector"
-                    android:button="@null"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radiobottenAll"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
-                    android:checked="false"
-                    android:text="ALL"
                     android:background="@drawable/range_radio_btn_selector_background"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"/>
-
-
-
-
-
+                    android:button="@null"
+                    android:checked="false"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:text="ALL"
+                    android:textColor="@drawable/range_radio_btn_selector"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
 
             </RadioGroup>
 
 
-
         </LinearLayout>
-
 
 
     </LinearLayout>

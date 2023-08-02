@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <TextView
-
         android:id="@+id/up_down_sighn"
         style="@style/CoinBitText.Body"
         android:layout_width="wrap_content"

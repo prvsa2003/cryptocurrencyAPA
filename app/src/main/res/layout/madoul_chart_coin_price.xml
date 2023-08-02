@@ -9,7 +9,7 @@
     <TextView
         android:textStyle="bold"
         style="@style/CoinBitText.Huge"
-        android:id="@+id/textView"
+        android:id="@+id/Coinprice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
