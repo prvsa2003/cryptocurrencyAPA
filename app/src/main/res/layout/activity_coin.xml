@@ -24,8 +24,12 @@
                 android:id="@+id/layoutchart"
                 layout="@layout/layout_chart"/>
             <include
+
                 android:id="@+id/layoutstatic"
                 layout="@layout/layout_static"/>
+            <include
+                android:id="@+id/layoutabout"
+                layout="@layout/layout_about"/>
 
         </LinearLayout>
 

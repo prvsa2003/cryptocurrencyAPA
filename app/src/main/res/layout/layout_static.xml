@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:layout_marginTop="10dp"
     android:orientation="vertical"
     android:paddingEnd="10dp"
-    android:paddingStart="10dp"
-    android:paddingTop="12dp"
     android:paddingBottom="12dp"
     android:layout_marginBottom="14dp"
     android:layout_marginEnd="14dp"
@@ -19,9 +18,7 @@
         style="@style/CoinBitText.BodyAlternate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Statistic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Statistic" />
     <include
         android:id="@+id/madoulcardstatitstc"
         layout="@layout/madoul_of_card_of_statistic"/>
