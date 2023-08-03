@@ -1,4 +1,4 @@
-package com.example.cryptocurrency_apa
+package com.example.cryptocurrency_apa.Activitys
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
