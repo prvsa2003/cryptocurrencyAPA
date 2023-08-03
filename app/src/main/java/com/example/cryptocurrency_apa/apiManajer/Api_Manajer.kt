@@ -1,5 +1,6 @@
 package com.example.cryptocurrency_apa.apiManajer
 
+import com.example.cryptocurrency_apa.apiManajer.model.Data_Coin
 import com.example.cryptocurrency_apa.apiManajer.model.Data_News
 import retrofit2.Call
 import retrofit2.Callback
@@ -34,6 +35,20 @@ class Api_Manajer {
             }
 
         })
+    }
+    fun getCoin(apicallBack: ApiCallBack<List<Data_Coin.Data>>){
+        apiService.gettopCoin().enqueue(object :Callback<Data_Coin>{
+            override fun onResponse(call: Call<Data_Coin>, response: Response<Data_Coin>) {
+                val data = response.body()!!
+                apicallBack.onsucces(data.data)
+            }
+
+            override fun onFailure(call: Call<Data_Coin>, t: Throwable) {
+                apicallBack.onErorr(t.message!!)
+            }
+
+        })
+
     }
 
 

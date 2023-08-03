@@ -21,7 +21,6 @@ interface Api_Service {
     @GET("top/totalvolfull")
     fun gettopCoin(
         @Query("tsym")to_symbol : String = "USD",
-        @Query("fsym")from_symbol : String,
         @Query("limit") limit_Data : Int= 10 ,
 
     ):Call<Data_Coin>

@@ -5,10 +5,12 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptocurrency_apa.apiManajer.Api_Manajer
+import com.example.cryptocurrency_apa.apiManajer.model.Data_Coin
 import com.example.cryptocurrency_apa.databinding.ActivityMarketBinding
 
-class MarketActivity : AppCompatActivity() {
+class MarketActivity : AppCompatActivity() , Market_Adapter.RecyclercallBack {
     private lateinit var binding : ActivityMarketBinding
      val apiManajer = Api_Manajer()
     lateinit var data_news :ArrayList<Pair<String,String>>
@@ -22,7 +24,33 @@ class MarketActivity : AppCompatActivity() {
 
     private fun initUi() {
         getnewsfromApi()
+        getcoinsfromapi()
     }
+
+    private fun getcoinsfromapi() {
+        apiManajer.getCoin(object :Api_Manajer.ApiCallBack<List<Data_Coin.Data>>{
+            override fun onsucces(data: List<Data_Coin.Data>) {
+               showdatainrecyclerview(data)
+            }
+
+            override fun onErorr(erorrmassage: String) {
+                Toast.makeText(this@MarketActivity, "erorr : " + erorrmassage, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
+
+    private fun showdatainrecyclerview(data:List<Data_Coin.Data>) {
+        val marketadapter = Market_Adapter(ArrayList(data) , this)
+        val adapteer = binding.watchlist.recyclermain
+        adapteer.adapter = marketadapter
+        adapteer.layoutManager = LinearLayoutManager(this )
+
+
+        
+
+    }
+
     private fun getnewsfromApi() {
         apiManajer.getNews(object :Api_Manajer.ApiCallBack<ArrayList<Pair<String,String>>>{
             override fun onsucces(data: ArrayList<Pair<String, String>>) {
@@ -46,6 +74,14 @@ class MarketActivity : AppCompatActivity() {
         binding.layoutNews.txtNews.setOnClickListener {
             refcresh()
         }
+    }
+
+    override fun oncoinitemcliked(data: Data_Coin.Data) {
+        val intent = Intent(this , CoinActivity::class.java)
+        val bundel = Bundle()
+        bundel.putString("bundel1" , data.toString())
+        intent.putExtra("bundel" , bundel)
+        startActivity(intent)
     }
 
 
