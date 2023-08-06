@@ -1,7 +1,8 @@
-package com.example.cryptocurrency_apa.apiManajer.model
-
-
+package ir.dunijet.dunipool.apiManager.Model
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import java.math.BigInteger
 
 data class Data_Coin(
     @SerializedName("Data")
@@ -19,6 +20,7 @@ data class Data_Coin(
     @SerializedName("Type")
     val type: Int
 ) {
+    @Parcelize
     data class Data(
         @SerializedName("CoinInfo")
         val coinInfo: CoinInfo,
@@ -26,7 +28,8 @@ data class Data_Coin(
         val dISPLAY: DISPLAY,
         @SerializedName("RAW")
         val rAW: RAW
-    ) {
+    ):Parcelable {
+        @Parcelize
         data class CoinInfo(
             @SerializedName("Algorithm")
             val algorithm: String,
@@ -52,8 +55,6 @@ data class Data_Coin(
             val maxSupply: Double,
             @SerializedName("Name")
             val name: String,
-            @SerializedName("NetHashesPerSecond")
-            val netHashesPerSecond: Long,
             @SerializedName("ProofType")
             val proofType: String,
             @SerializedName("Rating")
@@ -62,11 +63,13 @@ data class Data_Coin(
             val type: Int,
             @SerializedName("Url")
             val url: String
-        ) {
+        ):Parcelable {
+            @Parcelize
             data class Rating(
                 @SerializedName("Weiss")
                 val weiss: Weiss
-            ) {
+            ):Parcelable {
+                @Parcelize
                 data class Weiss(
                     @SerializedName("MarketPerformanceRating")
                     val marketPerformanceRating: String,
@@ -74,14 +77,15 @@ data class Data_Coin(
                     val rating: String,
                     @SerializedName("TechnologyAdoptionRating")
                     val technologyAdoptionRating: String
-                )
+                ):Parcelable
             }
         }
-
+        @Parcelize
         data class DISPLAY(
             @SerializedName("USD")
             val uSD: USD
-        ) {
+        ):Parcelable {
+            @Parcelize
             data class USD(
                 @SerializedName("CHANGE24HOUR")
                 val cHANGE24HOUR: String,
@@ -102,7 +106,7 @@ data class Data_Coin(
                 @SerializedName("CONVERSIONLASTUPDATE")
                 val cONVERSIONLASTUPDATE: String,
                 @SerializedName("CONVERSIONSYMBOL")
-                val cONVERSIONSYMBOL: String,
+                val cONVERSIONSYMBOL: String?,
                 @SerializedName("CONVERSIONTYPE")
                 val cONVERSIONTYPE: String,
                 @SerializedName("FROMSYMBOL")
@@ -173,13 +177,14 @@ data class Data_Coin(
                 val vOLUMEHOUR: String,
                 @SerializedName("VOLUMEHOURTO")
                 val vOLUMEHOURTO: String
-            )
+            ):Parcelable
         }
-
+        @Parcelize
         data class RAW(
             @SerializedName("USD")
             val uSD: USD
-        ) {
+        ):Parcelable {
+            @Parcelize
             data class USD(
                 @SerializedName("CHANGE24HOUR")
                 val cHANGE24HOUR: Double,
@@ -277,7 +282,7 @@ data class Data_Coin(
                 val vOLUMEHOUR: Double,
                 @SerializedName("VOLUMEHOURTO")
                 val vOLUMEHOURTO: Double
-            )
+            ):Parcelable
         }
     }
 

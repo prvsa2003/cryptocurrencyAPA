@@ -1,7 +1,6 @@
 package com.example.cryptocurrency_apa.apiManajer
-
-import com.example.cryptocurrency_apa.apiManajer.model.Data_Coin
 import com.example.cryptocurrency_apa.apiManajer.model.Data_News
+import ir.dunijet.dunipool.apiManager.Model.Data_Coin
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
