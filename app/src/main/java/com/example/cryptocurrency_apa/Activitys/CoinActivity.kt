@@ -4,11 +4,24 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import com.example.cryptocurrency_apa.R
+import com.example.cryptocurrency_apa.apiManajer.ALL
+import com.example.cryptocurrency_apa.apiManajer.Api_Manajer
+import com.example.cryptocurrency_apa.apiManajer.HOUR
+import com.example.cryptocurrency_apa.apiManajer.HOURS24
+import com.example.cryptocurrency_apa.apiManajer.MONTH
+import com.example.cryptocurrency_apa.apiManajer.MONTH3
+import com.example.cryptocurrency_apa.apiManajer.WEEK
+import com.example.cryptocurrency_apa.apiManajer.YEAR
+import com.example.cryptocurrency_apa.apiManajer.model.ChartData
 import com.example.cryptocurrency_apa.apiManajer.model.CoinAboutItem
 import com.example.cryptocurrency_apa.databinding.ActivityCoinBinding
 import ir.dunijet.dunipool.apiManager.Model.Data_Coin
 
 class CoinActivity : AppCompatActivity() {
+    var apiManager= Api_Manajer()
     private lateinit var binding: ActivityCoinBinding
     private lateinit var  dataCoin: Data_Coin.Data
     private lateinit var datathiscoin : CoinAboutItem
@@ -73,6 +86,57 @@ class CoinActivity : AppCompatActivity() {
     }
 
     private fun chart() {
+        var period : String = HOUR
+        requestforchartdata(period)
+        binding.layoutchart.radiogroupchart.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                R.id.radiobutton12h -> {period = HOUR}
+                R.id.radiobotton1d ->{period = HOURS24}
+                R.id.radiobottn1w ->{period = WEEK}
+                R.id.radiobotten1M->{period = MONTH}
+                R.id.radiobotton3M->{period = MONTH3}
+                R.id.radiobottn1Y->{period = YEAR}
+                R.id.radiobottenAll ->{period = ALL}
+            }
+            requestforchartdata(period)
+        }
+        binding.layoutchart.PriceCounChart.Coinprice.text = dataCoin.dISPLAY.uSD.pRICE
+        binding.layoutchart.madoulChartChange1.txtChange1Chart.text = " "+dataCoin.dISPLAY.uSD.cHANGE24HOUR
+//        binding.layoutchart.madoulChartChange2.txtchartchange2.text = dataCoin.dISPLAY.uSD.cHANGEPCT24HOUR.toString().substring(0,8)+"%"
+        val taghieer = dataCoin.rAW.uSD.cHANGEPCT24HOUR
+        if (taghieer>0){
+            binding.layoutchart.madoulChartChange2.txtchartchange2.setTextColor(ContextCompat.getColor(this , R.color.colorGain))
+            binding.layoutchart.UpDownSign.upDownSighn.setTextColor(ContextCompat.getColor(this , R.color.colorGain))
+            binding.layoutchart.UpDownSign.upDownSighn.text = "▲"
+            binding.layoutchart.sparkCoin.lineColor = ContextCompat.getColor(this,R.color.colorGain)
+        }else if ( taghieer<0){
+            binding.layoutchart.madoulChartChange2.txtchartchange2.setTextColor(ContextCompat.getColor(this , R.color.colorLoss))
+            binding.layoutchart.UpDownSign.upDownSighn.setTextColor(ContextCompat.getColor(this , R.color.colorLoss))
+            binding.layoutchart.UpDownSign.upDownSighn.text = "▼"
+            binding.layoutchart.sparkCoin.lineColor = ContextCompat.getColor(this,R.color.colorLoss)
+        }
+        binding.layoutchart.sparkCoin.setScrubListener {
+            if (it == null ){
+                binding.layoutchart.PriceCounChart.Coinprice.text = dataCoin.dISPLAY.uSD.pRICE
+            }else{
+                binding.layoutchart.PriceCounChart.Coinprice.text = "$"+(it as ChartData.Data).close.toString()
+            }
+        }
+    }
+
+    private fun requestforchartdata(period: String) {
+    apiManager.getchartdata(dataCoin.coinInfo.name , period , object :Api_Manajer.ApiCallBack<Pair<List<ChartData.Data>,ChartData.Data?>>{
+        override fun onsucces(data: Pair<List<ChartData.Data>, ChartData.Data?>) {
+        val chartadapter = Chart_Adapter(data.first , data.second?.open.toString())
+            binding.layoutchart.sparkCoin.adapter = chartadapter
+
+        }
+
+        override fun onErorr(erorrmassage: String) {
+            Toast.makeText(this@CoinActivity, "erorr = " + erorrmassage!!, Toast.LENGTH_SHORT).show()
+        }
+
+    })
 
     }
 }

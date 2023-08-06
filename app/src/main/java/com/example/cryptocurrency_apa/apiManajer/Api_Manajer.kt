@@ -1,5 +1,6 @@
 package com.example.cryptocurrency_apa.apiManajer
 
+import com.example.cryptocurrency_apa.apiManajer.model.ChartData
 import com.example.cryptocurrency_apa.apiManajer.model.Data_News
 import ir.dunijet.dunipool.apiManager.Model.Data_Coin
 import retrofit2.Call
@@ -49,6 +50,60 @@ class Api_Manajer {
 
         })
 
+    }
+    fun getchartdata(symbol : String , period : String , apiCallback: ApiCallBack<Pair<List<ChartData.Data>, ChartData.Data?>>){
+        var histoperiod = ""
+        var limit = 30
+        var aggregate = 1
+        when(period){
+            HOUR -> {
+                histoperiod = HISTO_MINUTE
+                limit = 60
+                aggregate = 12
+            }
+            HOURS24 -> {
+                histoperiod = HISTO_HOUR
+                limit = 24
+            }
+            MONTH -> {
+                histoperiod = HISTO_DAY
+                limit = 30
+            }
+            MONTH3 -> {
+                histoperiod = HISTO_DAY
+                limit = 90
+            }
+            WEEK -> {
+                histoperiod = HISTO_HOUR
+                aggregate = 6
+            }
+            YEAR -> {
+                histoperiod = HISTO_DAY
+                aggregate = 13
+            }
+            ALL -> {
+                histoperiod = HISTO_DAY
+                aggregate = 30
+                limit = 2000
+            }
+        }
+        apiService.getChartData(histoperiod , symbol , limit , aggregate).enqueue(object :Callback<ChartData>{
+            override fun onResponse(call: Call<ChartData>, response: Response<ChartData>) {
+
+                val data = response.body()!!
+                val data1 = data.data
+                val data2 = data.data.maxByOrNull { it.close.toFloat() }
+                val twodata = Pair(data1,data2)
+                apiCallback.onsucces(twodata)
+
+            }
+
+            override fun onFailure(call: Call<ChartData>, t: Throwable) {
+                apiCallback.onErorr(t.message!!)
+
+            }
+
+        })
     }
 
 
