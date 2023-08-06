@@ -4,7 +4,7 @@ import com.example.cryptocurrency_apa.apiManajer.model.ChartData
 import com.robinhood.spark.SparkAdapter
 
 
-class ChartApater(
+class Chart_Adapter(
     private val historicalData :List<ChartData.Data> ,
     private val baseLine :String ?) :SparkAdapter()  {
 

@@ -102,8 +102,8 @@ class CoinActivity : AppCompatActivity() {
         }
         binding.layoutchart.PriceCounChart.Coinprice.text = dataCoin.dISPLAY.uSD.pRICE
         binding.layoutchart.madoulChartChange1.txtChange1Chart.text = " "+dataCoin.dISPLAY.uSD.cHANGE24HOUR
-//        binding.layoutchart.madoulChartChange2.txtchartchange2.text = dataCoin.dISPLAY.uSD.cHANGEPCT24HOUR.toString().substring(0,8)+"%"
         val taghieer = dataCoin.rAW.uSD.cHANGEPCT24HOUR
+        binding.layoutchart.madoulChartChange2.txtchartchange2.text = taghieer.toString().substring(0,8)+"%"
         if (taghieer>0){
             binding.layoutchart.madoulChartChange2.txtchartchange2.setTextColor(ContextCompat.getColor(this , R.color.colorGain))
             binding.layoutchart.UpDownSign.upDownSighn.setTextColor(ContextCompat.getColor(this , R.color.colorGain))
