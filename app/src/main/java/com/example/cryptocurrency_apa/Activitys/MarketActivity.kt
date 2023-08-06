@@ -97,7 +97,7 @@ class MarketActivity : AppCompatActivity(), Market_Adapter.RecyclercallBack {
     override fun oncoinitemcliked(data: Data_Coin.Data) {
         val intent = Intent(this, CoinActivity::class.java)
         val bundel = Bundle()
-        bundel.putString("bundel1", data.toString())
+        bundel.putParcelable("bundel1", data)
         intent.putExtra("bundel", bundel)
         startActivity(intent)
     }
