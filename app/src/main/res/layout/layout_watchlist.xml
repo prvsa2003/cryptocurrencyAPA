@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_marginTop="12dp"
     android:background="@drawable/background_rounded_all"
     android:paddingEnd="10dp"
     android:paddingStart="10dp"
