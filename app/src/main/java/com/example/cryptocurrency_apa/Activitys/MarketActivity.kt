@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.cryptocurrency_apa.apiManajer.Api_Manajer
@@ -20,6 +22,17 @@ class MarketActivity : AppCompatActivity(), Market_Adapter.RecyclercallBack {
         setContentView(binding.root)
         binding.toolbarmarket.toolbar.title = "Market"
         initUi()
+        binding.watchlist.btnshowmore.setOnClickListener {
+            val url = "https://www.livecoinwatch.com/"
+            val intent = Intent(Intent.ACTION_VIEW , Uri.parse(url))
+            startActivity(intent)
+        }
+        binding.swiperefreshmain.setOnRefreshListener {
+            initUi()
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.swiperefreshmain.isRefreshing = false
+            } , 1000)
+        }
     }
 
     override fun onResume() {
@@ -69,7 +82,6 @@ class MarketActivity : AppCompatActivity(), Market_Adapter.RecyclercallBack {
 
         })
     }
-
     private fun refcresh() {
         val randomdata = (0..49).random()
         binding.layoutNews.txtNews.text = data_news[randomdata].first
