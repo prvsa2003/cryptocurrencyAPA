@@ -20,7 +20,7 @@ import com.example.cryptocurrency_apa.apiManajer.model.CoinAboutItem
 import com.example.cryptocurrency_apa.databinding.ActivityCoinBinding
 import ir.dunijet.dunipool.apiManager.Model.Data_Coin
 
-class CoinActivity : AppCompatActivity() {
+class CoinActivity : BaseActivity() {
     var apiManager= Api_Manajer()
     private lateinit var binding: ActivityCoinBinding
     private lateinit var  dataCoin: Data_Coin.Data

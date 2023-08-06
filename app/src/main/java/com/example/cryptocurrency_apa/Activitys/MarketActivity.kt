@@ -17,7 +17,7 @@ import com.example.cryptocurrency_apa.databinding.ActivityMarketBinding
 import com.google.gson.Gson
 import ir.dunijet.dunipool.apiManager.Model.Data_Coin
 
-class MarketActivity : AppCompatActivity(), Market_Adapter.RecyclercallBack {
+class MarketActivity : BaseActivity(), Market_Adapter.RecyclercallBack {
     private lateinit var binding: ActivityMarketBinding
     val apiManajer = Api_Manajer()
     lateinit var data_news: ArrayList<Pair<String, String>>
