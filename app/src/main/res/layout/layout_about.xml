@@ -25,10 +25,11 @@
         android:layout_height="wrap_content">
 
 
-    <include
-        android:id="@+id/madoul_of_card_of_statistic"
-        layout="@layout/madoual_about_card" />
-    <View
+        <include
+            android:id="@+id/madoul_of_card_of_About"
+            layout="@layout/madoual_about_card" />
+
+        <View
         android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
